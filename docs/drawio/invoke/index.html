@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>invoke</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/pulse/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Demos" data-nsd-label-uuid="597b9eb2-69ad-494b-8e3a-c0d43778dfa2" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika Demos</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="../../index.html" data-nsd-label-uuid="802189b6-bb22-487e-b4c8-23b9cd532071" class="navbar-brand">nsd</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_bu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_bu" class="collapse navbar-collapse"></div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="nsd-collapse-panel bg-light text-center"><span data-toggle="collapse" data-target="#nsd-nav-panel-e3a2af19-2708-487c-966e-ee03583a9b12-collapsible" aria-expanded="true" aria-controls="nsd-nav-panel-e3a2af19-2708-487c-966e-ee03583a9b12-collapsible" title="Toggle panel" id="nsd-nav-panel-e3a2af19-2708-487c-966e-ee03583a9b12-collapsible-trigger" class="nsd-collapsible-trigger"><i aria-hidden="true" class="fa"></i></span>
+          </div>
+          <div id="nsd-nav-panel-e3a2af19-2708-487c-966e-ee03583a9b12-collapsible" style="clear:right" class="nsd-collapsible collapse show">
+            <input type="text" id="48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel_searchInput" title="Full-text search. You can use wildcards, e.g. 'foo*' or 'f*o'; title or content fields, e.g. 'title:foo* bar'; boosts, e.g. 'foo^10 bar'; fuzzy matches, e.g. 'foo~1'; and term presence, e.g. '+foo bar -baz'" class="form-control mt-1"/>
+            <div id="48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel"></div>
+            <script>$(document).ready( function() {
+$('#48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel').jstree(function(tree) { tree.state.filter = function(state) { delete state.core.selected; return state; };  tree.search.search_callback = function(searchStr, node) { if (typeof window.nsdJsTreeSearchCallback === 'function') return window.nsdJsTreeSearchCallback(searchStr, node); var sf = new $.vakata.search(searchStr, true, { caseSensitive : false, fuzzy : false }); return sf.search(node.text).isMatch; }; return tree; }({"core":{"data":[{"a_attr":{"onclick":"window.location='../../app/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../../app/site/index.html';"},"data-nsd-label-uuid":"e5215c77-70f1-4801-aa75-a233a2d5e164","id":"nsd-app-nav-item-e259d085-653b-4625-8a39-5ca75d166b48","text":"site","type":"leaf"}],"data-nsd-label-uuid":"63f2b823-61f0-4786-848b-a31299954e17","id":"nsd-app-nav-item-bc0fd4c1-ac17-4cb2-a832-9e73a9ea1fcf","text":"app"},{"a_attr":{"onclick":"window.location='../index.html';"},"children":[{"a_attr":{"onclick":"window.location='../html-app/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../html-app/save/index.html';"},"data-nsd-label-uuid":"811f28ad-c391-45eb-9137-b37acfdf48b9","icon":"https://img.icons8.com/dusk/20/save--v1.png","id":"nsd-app-nav-item-22d4b9ec-9c63-4856-8d36-8092cdc0e052","text":"save","type":"leaf"},{"a_attr":{"onclick":"window.location='../html-app/site/index.html';"},"data-nsd-label-uuid":"01eb6dec-98c1-407e-ba82-1aa7b0d5c39a","icon":"https://img.icons8.com/material-two-tone/20/web.png","id":"nsd-app-nav-item-42340d6c-289c-4a34-8832-984ae92d06ef","text":"site","type":"leaf"}],"data-nsd-label-uuid":"12516e7d-a023-4c2c-b4ed-a318dfd819fc","icon":"https://docs.nasdanika.org/images/html-application.svg","id":"nsd-app-nav-item-b0a4fda6-92cd-493c-bb0b-70f8e49e9e20","text":"html-app"},{"a_attr":{"onclick":"window.location='../http-server/index.html';"},"data-nsd-label-uuid":"184b942e-9ba0-47c7-8f61-f6694e5a7af5","icon":"https://docs.nasdanika.org/images/http.svg","id":"nsd-app-nav-item-bcf98138-0c1d-4c4f-8819-778168ce3d75","text":"http-server","type":"leaf"},{"data-nsd-label-uuid":"a32d8b6b-c207-453b-88e2-23e19e8cca62","icon":"https://docs.nasdanika.org/images/automation.svg","state":{"selected":true},"id":"nsd_c1","text":"invoke","type":"leaf"}],"data-nsd-label-uuid":"0b67bb51-038f-4d4b-a38e-5fd42e4aa8cf","icon":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3QgeT0iMiIgeD0iMiIgd2lkdGg9IjI4IiByeD0iMS4xMiIgaGVpZ2h0PSIyOCIgZmlsbD0iI2YwODcwNSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2RmNmMwYyIgZD0ibTE2Ljg2MSA5LjE2OCAzLjAyLTMuMTg3IDEwLjExOSAxMC4xMTN2MTIuNzg2YTEuMTE5IDEuMTE5IDAgMCAxIC0xLjEyIDEuMTJoLTE3LjU2NGwtNS4zODUtNS40MDd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTI1LjI0IDE3Ljk2aC0zLjI5NGwtMy4wNzEtNS4zMmguMmExLjExOSAxLjExOSAwIDAgMCAxLjEyLTEuMTJ2LTQuNzZhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTItMS4xMmgtNi4xNTVhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTIgMS4xMnY0Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTIgMS4xMmguMjA1bC0zLjA3MSA1LjMyaC0zLjI5NGExLjExOSAxLjExOSAwIDAgMCAtMS4xMiAxLjEydjQuNzZhMS4xMTkgMS4xMTkgMCAwIDAgMS4xMiAxLjEyaDYuMTZhMS4xMTkgMS4xMTkgMCAwIDAgMS4xMi0xLjEydi00Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIC0xLjEyLTEuMTJoLS45MjdsMy4wNzItNS4zMmgxLjg3bDMuMDcxIDUuMzJoLS45MjZhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTIgMS4xMnY0Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTIgMS4xMmg2LjE2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTItMS4xMnYtNC43NmExLjExOSAxLjExOSAwIDAgMCAtMS4xMi0xLjEyeiIvPjwvc3ZnPg==","id":"nsd-app-nav-item-9c99dd7d-5687-42c1-b2ba-413231c61510","text":"drawio"},{"a_attr":{"onclick":"window.location='../../exit/index.html';"},"data-nsd-label-uuid":"e05b3c1d-e6cb-417e-965a-28e3e9a8a977","id":"nsd-app-nav-item-19f10b02-b03b-4745-820b-b03b4702ca1c","text":"exit","type":"leaf"},{"a_attr":{"onclick":"window.location='../../help/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../../help/site/index.html';"},"data-nsd-label-uuid":"f1d5d4c0-31ee-41ce-9b23-5e882efa0fa2","icon":"https://img.icons8.com/material-two-tone/20/web.png","id":"nsd-app-nav-item-7b49c616-4bf1-4ca8-9358-99c82da38da5","text":"site","type":"leaf"}],"data-nsd-label-uuid":"fe6f6da5-6656-49e9-8ee2-9062361ead4d","icon":"far fa-question-circle","id":"nsd-app-nav-item-2bbdf357-e4e3-4a98-b033-09e8cff7281d","text":"help"},{"a_attr":{"onclick":"window.location='../../http-server/index.html';"},"data-nsd-label-uuid":"8ef5cae5-978b-4026-95f5-c9b47938e774","icon":"https://docs.nasdanika.org/images/http.svg","id":"nsd-app-nav-item-b6853ea1-0db5-4348-be01-2b335aad20eb","text":"http-server","type":"leaf"},{"a_attr":{"onclick":"window.location='../../invoke/index.html';"},"data-nsd-label-uuid":"0fef1e21-a369-4971-b82b-e7ac76055ce3","icon":"https://docs.nasdanika.org/images/automation.svg","id":"nsd-app-nav-item-f1d3c576-3147-4d18-907e-46cb560c1c18","text":"invoke","type":"leaf"},{"a_attr":{"onclick":"window.location='../../launcher/index.html';"},"data-nsd-label-uuid":"bfe2bbff-c469-40f9-9ba7-9ee816258ebd","id":"nsd-app-nav-item-b02d290a-9b8e-40b6-af34-02e5676728be","text":"launcher","type":"leaf"},{"a_attr":{"onclick":"window.location='../../mcp-server/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../../mcp-server/sse/index.html';"},"data-nsd-label-uuid":"46d7f075-ce8b-4f8b-a21d-7ed367374f8a","icon":"https://docs.nasdanika.org/images/http.svg","id":"nsd-app-nav-item-3b803c4f-d2bd-496b-96d1-f90e44eb1980","text":"sse","type":"leaf"},{"a_attr":{"onclick":"window.location='../../mcp-server/stdio/index.html';"},"data-nsd-label-uuid":"e04735b7-07b6-40a3-ae73-1fe0a927960a","icon":"https://docs.nasdanika.org/images/transfer.svg","id":"nsd-app-nav-item-ef5e70b5-a38b-482f-affe-ae000916b46d","text":"stdio","type":"leaf"}],"data-nsd-label-uuid":"5d80891c-58e6-4e89-b398-3d1c9e52e363","icon":"https://docs.nasdanika.org/images/mcp.png","id":"nsd-app-nav-item-ad87c28a-78ae-4e55-9629-8126a7c7a061","text":"mcp-server"},{"a_attr":{"onclick":"window.location='../../model/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../../model/html-app/index.html';"},"children":[{"a_attr":{"onclick":"window.location='../../model/html-app/save/index.html';"},"data-nsd-label-uuid":"a08f7fa4-2f60-4944-98c6-66c319d1dc19","icon":"https://img.icons8.com/dusk/20/save--v1.png","id":"nsd-app-nav-item-46dafa2e-0574-49b9-91a0-47c08c35072a","text":"save","type":"leaf"},{"a_attr":{"onclick":"window.location='../../model/html-app/site/index.html';"},"data-nsd-label-uuid":"df9585d0-f23d-4de4-b38b-b0f74f7b0f93","icon":"https://img.icons8.com/material-two-tone/20/web.png","id":"nsd-app-nav-item-84a43c6e-3358-4c93-8d3a-1aaec2eb22c0","text":"site","type":"leaf"}],"data-nsd-label-uuid":"11debad3-b19d-4eb2-931d-4915e9ca1c96","icon":"https://docs.nasdanika.org/images/html-application.svg","id":"nsd-app-nav-item-a9735ec5-5346-4467-a8f2-c0bd51b7a7b8","text":"html-app"},{"a_attr":{"onclick":"window.location='../../model/save/index.html';"},"data-nsd-label-uuid":"60b2a7a8-6c90-4d92-9615-98138d818a4d","icon":"https://img.icons8.com/dusk/20/save--v1.png","id":"nsd-app-nav-item-5c77f8cf-1ebf-4b6f-8b10-2da1fb2baece","text":"save","type":"leaf"}],"data-nsd-label-uuid":"33864bf1-e364-4165-9d51-68d61d9e01da","icon":"https://docs.nasdanika.org/images/model.svg","id":"nsd-app-nav-item-588188f2-c5bd-4afb-9f6a-ac7487e8142c","text":"model"},{"a_attr":{"onclick":"window.location='../../shell/index.html';"},"data-nsd-label-uuid":"6e47abcd-f48f-4c14-8750-4f1cf9ff4f45","icon":"https://img.icons8.com/nolan/20/console.png","id":"nsd-app-nav-item-9005bcd7-f2b4-401f-b54f-dae9b6f1ca2b","text":"shell","type":"leaf"}]},"search":{"show_only_matches":true,"show_only_matches_children":true},"types":{"leaf":{"icon":"jstree-file"}},"plugins":["state","type","search"],"state":{"key":"48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel"}}));
+// Tokens: searchInputSelector, timer, treeSelector
+$('#48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel_searchInput').keyup(function () {
+    if (window['nsd_jstTreeSearchTimer_nsd_ci']) { 
+		clearTimeout(window['nsd_jstTreeSearchTimer_nsd_ci']); 
+	}
+    window['nsd_jstTreeSearchTimer_nsd_ci'] = setTimeout(function () {
+      var v = $('#48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel_searchInput').val();
+      $('#48a7c128-0d37-41e3-bd22-df859350b29e-navigation-panel').jstree(true).search(v);
+    }, 250);
+  });
+
+});</script>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="a32d8b6b-c207-453b-88e2-23e19e8cca62" data-nsd-action-uris="uuid:a32d8b6b-c207-453b-88e2-23e19e8cca62" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="0b67bb51-038f-4d4b-a38e-5fd42e4aa8cf">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3QgeT0iMiIgeD0iMiIgd2lkdGg9IjI4IiByeD0iMS4xMiIgaGVpZ2h0PSIyOCIgZmlsbD0iI2YwODcwNSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2RmNmMwYyIgZD0ibTE2Ljg2MSA5LjE2OCAzLjAyLTMuMTg3IDEwLjExOSAxMC4xMTN2MTIuNzg2YTEuMTE5IDEuMTE5IDAgMCAxIC0xLjEyIDEuMTJoLTE3LjU2NGwtNS4zODUtNS40MDd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTI1LjI0IDE3Ljk2aC0zLjI5NGwtMy4wNzEtNS4zMmguMmExLjExOSAxLjExOSAwIDAgMCAxLjEyLTEuMTJ2LTQuNzZhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTItMS4xMmgtNi4xNTVhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTIgMS4xMnY0Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTIgMS4xMmguMjA1bC0zLjA3MSA1LjMyaC0zLjI5NGExLjExOSAxLjExOSAwIDAgMCAtMS4xMiAxLjEydjQuNzZhMS4xMTkgMS4xMTkgMCAwIDAgMS4xMiAxLjEyaDYuMTZhMS4xMTkgMS4xMTkgMCAwIDAgMS4xMi0xLjEydi00Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIC0xLjEyLTEuMTJoLS45MjdsMy4wNzItNS4zMmgxLjg3bDMuMDcxIDUuMzJoLS45MjZhMS4xMTkgMS4xMTkgMCAwIDAgLTEuMTIgMS4xMnY0Ljc2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTIgMS4xMmg2LjE2YTEuMTE5IDEuMTE5IDAgMCAwIDEuMTItMS4xMnYtNC43NmExLjExOSAxLjExOSAwIDAgMCAtMS4xMi0xLjEyeiIvPjwvc3ZnPg==" class="nsd-app-label-icon"/>drawio</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="a32d8b6b-c207-453b-88e2-23e19e8cca62"><img src="https://docs.nasdanika.org/images/automation.svg" class="nsd-app-label-icon"/>invoke</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="a32d8b6b-c207-453b-88e2-23e19e8cca62" class="nsd-app-content-panel-title"><img src="https://docs.nasdanika.org/images/automation.svg" class="nsd-app-label-icon"/>invoke</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><table><tr><th valign="top">Version:</th><td> 
+org.nasdanika.cli
+<br/>
+</td></tr></table>
+<div style="font-family:monospace;white-space:pre;padding:5px;width:max-content">
+Usage: nsd drawio invoke [-hV] [--progress-console] [--progress-data]
+                         [--progress-json] [-b=&lt;bindProperty&gt;]
+                         [-c=&lt;connectionBase&gt;] [-p=&lt;processorProperty&gt;]
+                         [--progress-output=&lt;progressOutput&gt;] [&lt;parameters&gt;...]
+Creates an Invocable dynamic proxy from a diagram
+calls it with command parameters and returns result
+      [&lt;parameters&gt;...]    Invocable parameters
+  -b, --bind-property=&lt;bindProperty&gt;
+                           Bind property providing dynamic
+                           proxy method name
+                           Defaults to bind
+  -c, --connection-base=&lt;connectionBase&gt;
+                           Connection base
+                           Valid values: PARENT, SOURCE, TARGET
+  -h, --help               Show this help message and exit.
+  -p, --processor-property=&lt;processorProperty&gt;
+                           Processor property
+                           Defaults to processor
+      --progress-console   Output progress to console
+      --progress-data      Output progress data
+      --progress-json      Output progress in JSON
+      --progress-output=&lt;progressOutput&gt;
+                           Output file for progress monitor
+  -V, --version            Print version information and exit.
+</div>
+<div class="markdown-body"><h3><a href="#example" id="example">Example</a></h3>
+<p><code>drawio -p my-property=&quot;My property&quot; invocable.drawio invoke 33 66</code></p>
+<ul>
+<li>The parent <a href="../index.html">drawio</a> command loads <code>invocable.drawio</code> diagram with <code>my-property</code> property set to <code>My property</code>. This property is used for placeholder expansion.</li>
+<li>This command:
+<ul>
+<li>Uses default values for <code>--processor-property</code> and <code>--bind-property</code> options to create diagram element processors and bind them to dynamic proxy methods - in this case a single <a href="https://javadoc.io/static/org.nasdanika.core/common/2025.1.0/org.nasdanika.common/org/nasdanika/common/Invocable.html#invoke(java.lang.Object...)"><code>invoke()</code></a> method.</li>
+<li>Calls the method with command line arguments - <code>33</code> and <code>66</code></li>
+</ul>
+</li>
+</ul>
+</div></div>
+                  </div>
+                  <div class="row">
+                    <div data-nsd-action-uris="uuid:0c6185af-9be2-4b5f-9fc0-48194d85bbf4" class="col">
+                      <div class="container-fluid">
+                        <div class="row nsd-app-content-panel-title-and-items-row">
+                          <div class="col-auto">
+                            <H2><span data-nsd-label-uuid="0c6185af-9be2-4b5f-9fc0-48194d85bbf4" class="nsd-app-content-panel-title">Options</span>
+                            </H2>
+                          </div>
+                        </div>
+                        <div class="row nsd-app-content-panel-content-row">
+                          <div class="col">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div data-nsd-action-uris="uuid:5dbc3c46-ed5e-4188-a2fb-9dd5e6a2313c" class="col">
+                                  <div class="container-fluid">
+                                    <div class="row nsd-app-content-panel-title-and-items-row">
+                                      <div class="col-auto">
+                                        <H3>
+                                          <a name="opt-p" data-nsd-label-uuid="5dbc3c46-ed5e-4188-a2fb-9dd5e6a2313c" class="nsd-app-content-panel-title">-p, --processor-property</a>
+                                        </H3>
+                                      </div>
+                                    </div>
+                                    <div class="row nsd-app-content-panel-content-row">
+                                      <div class="col">
+                                        <div class="container-fluid">
+                                          <div class="row">
+                                            <div class="col"><div class="markdown-body">
+
+</div>
+</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

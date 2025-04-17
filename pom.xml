@@ -29,6 +29,13 @@
             <artifactId>mcp-http</artifactId>
             <version>2025.3.0</version>
         </dependency>
+        
+        <!-- To generate documentation site -->
+        <dependency>
+            <groupId>org.nasdanika.models.app</groupId>
+            <artifactId>cli</artifactId>
+            <version>2025.3.0</version>
+        </dependency>        
 
         <dependency>
             <groupId>org.junit.platform</groupId>
