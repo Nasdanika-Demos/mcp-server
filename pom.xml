@@ -26,16 +26,17 @@
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
-            <artifactId>mcp-http</artifactId>
+            <artifactId>mcp-sse</artifactId>
             <version>2025.3.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
-            <groupId>org.nasdanika.models.app</groupId>
-            <artifactId>cli</artifactId>
+            <groupId>org.nasdanika.ai</groupId>
+            <artifactId>mcp-help</artifactId>
             <version>2025.3.0</version>
-        </dependency>        
+        </dependency>
+        
 
         <dependency>
             <groupId>org.junit.platform</groupId>
