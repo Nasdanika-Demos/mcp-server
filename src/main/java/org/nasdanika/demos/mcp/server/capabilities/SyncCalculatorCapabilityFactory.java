@@ -32,28 +32,20 @@ public class SyncCalculatorCapabilityFactory extends ServiceCapabilityFactory<Vo
 		
 		String schema = """
 				{
-	              "type" : "object",
-	              "id" : "urn:jsonschema:Operation",
-	              "properties" : {
-	                "operation" : {
-	                  "type" : "string"
-	                },
-	                "a" : {
-	                  "type" : "number"
-	                },
-	                "b" : {
-	                  "type" : "number"
-	                }
-	              }
-	            }
+				    "type": "object",
+				    "properties": {
+				      "leftOperand": { "type": "number" },
+				      "rightOperand": { "type": "number" }
+				    },
+				    "required": ["a", "b"]
+				}	            
 				""";
 			
 			SyncToolSpecification syncToolSpecification = new McpServerFeatures.SyncToolSpecification(
-				new Tool("calculator", "Nasdanika calculator of all great things", schema), 
+				new Tool("calculate_nasdanikus", "Computes nasdanikus function of two numbers", schema), 
 				(exchange, arguments) -> {
 					List<Content> result = new ArrayList<>();
 					result.add(new TextContent("Result: " + arguments));
-					
 					return new CallToolResult(result, false);
 				}
 			);

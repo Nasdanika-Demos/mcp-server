@@ -27,16 +27,21 @@
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-sse</artifactId>
-            <version>2025.3.0</version>
+            <version>2025.4.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-help</artifactId>
-            <version>2025.3.0</version>
+            <version>2025.4.0</version>
         </dependency>
-        
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-reactor-3.1</artifactId>
+            <version>2.15.0-alpha</version>
+            <scope>runtime</scope>
+        </dependency>        
 
         <dependency>
             <groupId>org.junit.platform</groupId>
