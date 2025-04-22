@@ -1,4 +1,4 @@
-# MCP SErver
+# MCP Server
 
 An MCP server built on top of Nasdanika [AI](https://docs.nasdanika.org/ai/index.html) and [CLI](https://docs.nasdanika.org/core/cli/index.html) capabilities.
 
