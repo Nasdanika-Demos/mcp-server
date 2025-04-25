@@ -37,7 +37,7 @@ public class SyncCalculatorCapabilityFactory extends ServiceCapabilityFactory<Vo
 				      "leftOperand": { "type": "number" },
 				      "rightOperand": { "type": "number" }
 				    },
-				    "required": ["a", "b"]
+				    "required": ["leftOperand", "rightOperand"]
 				}	            
 				""";
 			
