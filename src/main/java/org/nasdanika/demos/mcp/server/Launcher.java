@@ -3,15 +3,17 @@ package org.nasdanika.demos.mcp.server;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.capability.CapabilityProvider;
 import org.nasdanika.capability.ServiceCapabilityFactory;
 import org.nasdanika.capability.ServiceCapabilityFactory.Requirement;
+import org.nasdanika.cli.Application;
 import org.nasdanika.cli.ShellCommand;
 import org.nasdanika.cli.SubCommandRequirement;
 import org.nasdanika.common.Closeable;
-import org.nasdanika.common.NullProgressMonitor;
+import org.nasdanika.common.LoggerProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 
 import picocli.CommandLine;
@@ -20,8 +22,7 @@ public class Launcher {
 	
 	public static void main(String[] args) {
 		CapabilityLoader capabilityLoader = new CapabilityLoader(Launcher.class.getModule().getLayer());
-//		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor(true); 
-		ProgressMonitor progressMonitor = new NullProgressMonitor(); // TODO configurable through system properties
+		ProgressMonitor progressMonitor =  new LoggerProgressMonitor(Logger.getLogger(Application.class.getName()));
 
 		// Sub-commands, sorting alphabetically
 		List<CommandLine> rootCommands = new ArrayList<>();		

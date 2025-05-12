@@ -23,6 +23,12 @@
 	<url>https://github.com/Nasdanika/cli</url>	
 
 	<dependencies>
+        
+        <dependency>
+            <groupId>org.nasdanika.ai</groupId>
+            <artifactId>core</artifactId>
+            <version>2025.4.0</version>
+        </dependency>
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
