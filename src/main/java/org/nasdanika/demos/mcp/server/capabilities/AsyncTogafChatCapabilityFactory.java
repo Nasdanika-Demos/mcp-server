@@ -172,10 +172,6 @@ public class AsyncTogafChatCapabilityFactory extends ServiceCapabilityFactory<Vo
 			        Builder messageBuilder = McpSchema.CreateMessageRequest.builder();
 			        SamplingMessage message = new McpSchema.SamplingMessage(McpSchema.Role.USER, new McpSchema.TextContent("Calculate: " + arguments.get("expression")));
 					ModelPreferences modelPreferences = McpSchema.ModelPreferences.builder()
-//						    .hints(List.of(
-//						        McpSchema.ModelHint.of("claude-3-sonnet"),
-//						        McpSchema.ModelHint.of("claude")
-//						    ))
 					    .intelligencePriority(0.8)  // Prioritize intelligence
 					    .speedPriority(0.5)         // Moderate speed importance
 					    .build();
