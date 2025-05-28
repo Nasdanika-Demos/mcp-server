@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos</groupId>
-	<version>2025.5.0</version>
+	<version>2025.4.0</version>
 	<artifactId>mcp-server</artifactId>
 	<packaging>jar</packaging>
 	<name>Nasdanika Demo Stdio MCP Server</name>
@@ -27,25 +27,25 @@
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>core</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.4.0</version>
         </dependency>
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-sse</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.4.0</version>
         </dependency>
         <dependency>            
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>openai</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.4.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-help</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
