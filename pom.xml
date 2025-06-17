@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos</groupId>
-	<version>2025.5.0</version>
+	<version>2025.6.0</version>
 	<artifactId>mcp-server</artifactId>
 	<packaging>jar</packaging>
 	<name>Nasdanika Demo Stdio MCP Server</name>
@@ -23,34 +23,45 @@
 	<url>https://github.com/Nasdanika/cli</url>	
 
 	<dependencies>
-        
+          <!-- Forcing SLF4j version -->  
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>       
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>2.0.17</version>
+        </dependency>       
+      
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>core</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.6.0</version>
         </dependency>
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-sse</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.6.0</version>
         </dependency>
         <dependency>            
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>openai</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.6.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-help</artifactId>
-            <version>2025.5.0</version>
+            <version>2025.6.0</version>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-reactor-3.1</artifactId>
-            <version>2.15.0-alpha</version>
+            <version>2.16.0-alpha</version>
             <scope>runtime</scope>
         </dependency>        
 
