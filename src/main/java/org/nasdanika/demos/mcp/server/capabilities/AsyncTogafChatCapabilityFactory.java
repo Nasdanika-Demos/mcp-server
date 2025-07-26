@@ -15,11 +15,12 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.ai.Chat;
 import org.nasdanika.ai.Chat.ResponseMessage;
-import org.nasdanika.ai.Embeddings;
+import org.nasdanika.ai.EmbeddingGenerator;
 import org.nasdanika.ai.SearchResult;
 import org.nasdanika.ai.SimilaritySearch;
 import org.nasdanika.ai.SimilaritySearch.EmbeddingsItem;
 import org.nasdanika.ai.SimilaritySearch.IndexId;
+import org.nasdanika.ai.TextFloatVectorEmbeddingModel;
 import org.nasdanika.capability.CapabilityProvider;
 import org.nasdanika.capability.ServiceCapabilityFactory;
 import org.nasdanika.common.NasdanikaException;
@@ -57,8 +58,8 @@ public class AsyncTogafChatCapabilityFactory extends ServiceCapabilityFactory<Vo
 			Loader loader,
 			ProgressMonitor progressMonitor) {
 
-		Requirement<Embeddings.Requirement, Embeddings> embeddingsRequirement = ServiceCapabilityFactory.createRequirement(Embeddings.class);			
-		CompletionStage<Embeddings> embeddingsCS = loader.loadOne(embeddingsRequirement, progressMonitor);		
+		Requirement<EmbeddingGenerator.Requirement, TextFloatVectorEmbeddingModel> embeddingsRequirement = ServiceCapabilityFactory.createRequirement(TextFloatVectorEmbeddingModel.class);			
+		CompletionStage<TextFloatVectorEmbeddingModel> embeddingsCS = loader.loadOne(embeddingsRequirement, progressMonitor);		
 		CompletionStage<TextSearchConfig> textSearchCS = embeddingsCS.thenApply(this::createTextSearch);		
 		
 		Requirement<Chat.Requirement, Chat> chatRequirement = ServiceCapabilityFactory.createRequirement(Chat.class);			
@@ -71,7 +72,7 @@ public class AsyncTogafChatCapabilityFactory extends ServiceCapabilityFactory<Vo
 						chat)));
 	}
 	
-	protected TextSearchConfig createTextSearch(Embeddings embeddings) {		
+	protected TextSearchConfig createTextSearch(TextFloatVectorEmbeddingModel embeddingModel) {		
 		// Hardcoded for a demo
 		File index = new File("test-data/togaf/togaf-10-index.bin");
 		File textMap = new File("test-data/togaf/togaf-10-map.json");				
@@ -83,7 +84,7 @@ public class AsyncTogafChatCapabilityFactory extends ServiceCapabilityFactory<Vo
 			SimilaritySearch<List<List<Float>>, Float> multiVectorSearch = SimilaritySearch.adapt(vectorSearch);	
 			JSONObject textMapObj = new JSONObject(new JSONTokener(textMapInputStream));
 			Function<String, String> textProvider = uri -> textMapObj.getString(uri);			
-			return new TextSearchConfig(SimilaritySearch.embeddingsSearch(multiVectorSearch, embeddings), textProvider);
+			return new TextSearchConfig(SimilaritySearch.textFloatVectorEmbeddingSearch(multiVectorSearch, embeddingModel), textProvider);
 		} catch (IOException e) {
 			throw new NasdanikaException("Failed to load vector index or text map", e);
 		}		
