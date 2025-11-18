@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos</groupId>
-	<version>2025.6.0</version>
+	<version>2025.10.0</version>
 	<artifactId>mcp-server</artifactId>
 	<packaging>jar</packaging>
 	<name>Nasdanika Demo Stdio MCP Server</name>
@@ -38,25 +38,25 @@
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>core</artifactId>
-            <version>2025.6.1</version>
+            <version>2025.10.0</version>
         </dependency>
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-sse</artifactId>
-            <version>2025.6.1</version>
+            <version>2025.10.0</version>
         </dependency>
         <dependency>            
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>openai</artifactId>
-            <version>2025.6.1</version>
+            <version>2025.10.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-help</artifactId>
-            <version>2025.6.1</version>
+            <version>2025.10.0</version>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
@@ -64,23 +64,16 @@
             <version>2.16.0-alpha</version>
             <scope>runtime</scope>
         </dependency>        
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-engine</artifactId>
-            <version>1.12.1</version>
-            <scope>test</scope>
-        </dependency>
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-api</artifactId>
-		    <version>5.11.4</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>5.11.4</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 	</dependencies>
@@ -120,20 +113,13 @@
 		        <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
 		            <artifactId>maven-surefire-plugin</artifactId>
-		            <version>3.5.2</version>
-		            <dependencies>
-		                <dependency>
-		                    <groupId>org.junit.jupiter</groupId>
-		                    <artifactId>junit-jupiter-engine</artifactId>
-		                    <version>5.11.4</version>
-		                </dependency>
-		            </dependencies>
+		            <version>3.5.4</version>
 		        </plugin>
 
 		        <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
 	        	    <artifactId>maven-failsafe-plugin</artifactId>
-		            <version>3.5.2</version>
+		            <version>3.5.4</version>
 				    <executions>
 				        <execution>
 				            <goals>
@@ -198,7 +184,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.11.2</version>			
+				<version>3.12.0</version>			
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -245,57 +231,5 @@
 			<timezone>-5</timezone>
 		</developer>
 	</developers>
-	 <profiles>
-		<profile>
-			<id>ossrh</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>3.2.7</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>	
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.7.0</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
-					</plugin>								
-				</plugins>
-			</build>
-			<distributionManagement>
-				<repository>
-					<id>ossrh</id>
-					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-				</repository>
-				<snapshotRepository>
-					<id>ossrh</id>
-					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-				</snapshotRepository>
-			</distributionManagement>	
-		</profile>
-	</profiles>
-        
-    <!-- For picocli 4.7.7-SNAPSHOT -->    
-    <repositories>
-        <repository>
-            <id>nasdanika-snapshots</id>
-            <url>https://maven.nasdanika.org/snapshots</url>
-        </repository>
-    </repositories> 
 
 </project>
