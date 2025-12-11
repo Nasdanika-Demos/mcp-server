@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos</groupId>
-	<version>2025.10.0</version>
+	<version>2025.12.0</version>
 	<artifactId>mcp-server</artifactId>
 	<packaging>jar</packaging>
 	<name>Nasdanika Demo Stdio MCP Server</name>
@@ -38,42 +38,42 @@
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>core</artifactId>
-            <version>2025.10.0</version>
+            <version>2025.12.0</version>
         </dependency>
 		
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-sse</artifactId>
-            <version>2025.10.0</version>
+            <version>2025.12.0</version>
         </dependency>
         <dependency>            
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>openai</artifactId>
-            <version>2025.10.0</version>
+            <version>2025.12.0</version>
         </dependency>
         
         <!-- To generate documentation site -->
         <dependency>
             <groupId>org.nasdanika.ai</groupId>
             <artifactId>mcp-help</artifactId>
-            <version>2025.10.0</version>
+            <version>2025.12.0</version>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-reactor-3.1</artifactId>
-            <version>2.16.0-alpha</version>
+            <version>2.22.0-alpha</version>
             <scope>runtime</scope>
         </dependency>        
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-api</artifactId>
-		    <version>6.0.0</version>
+		    <version>6.0.1</version>
 		    <scope>test</scope>
 		</dependency>		
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>6.0.0</version>
+		    <version>6.0.1</version>
 		    <scope>test</scope>
 		</dependency>		
 	</dependencies>
@@ -92,7 +92,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.9.0</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
@@ -128,17 +128,10 @@
 			        	    </goals>
 				        </execution>
 				    </executions>
-		            <dependencies>
-		                <dependency>
-		                    <groupId>org.junit.jupiter</groupId>
-		                    <artifactId>junit-jupiter-engine</artifactId>
-		                    <version>5.11.4</version>
-		                </dependency>
-		            </dependencies>
 		        </plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.7.1</version>
+				<version>3.8.0</version>
 				<configuration>
 					<outputDirectory>${project.build.directory}</outputDirectory>
 					<formats>zip</formats>
@@ -162,16 +155,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+				<version>3.14.1</version>
 				<configuration>
-					<source>21</source>
-					<target>21</target>
+					<release>21</release>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.3.1</version>
+				<version>3.4.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
